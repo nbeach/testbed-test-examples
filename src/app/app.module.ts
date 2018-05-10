@@ -3,16 +3,23 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
+import {FormsModule} from '@angular/forms';
+import LoginComponent from './login/login.component';
+import AuthenticationService from './login/Authentication.service';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [
+    { provide: AuthenticationService, useClass: AuthenticationService }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
